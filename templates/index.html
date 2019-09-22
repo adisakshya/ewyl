@@ -6,14 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
-    <title>Github Search</title>
+    <title>VTSLIVE | Adisakshya Chauhan</title>
 </head>
 <body>
-  
+  <div class="container">
   <!-- Body here -->
+  <section>
+    <input type="number" id="bus_number" name="bus_number" placeholder="Bus Number"/>
+    <button onclick="myFunction()">Click me</button>
+  </section>
+  <br>
+    <div id="bus_details">
+      <label>Geo Location - &nbsp</label><span id="location"></span> <br>
+      <label>Place - &nbsp</label><span id="place"></span> <br>
+      <label>Speed - &nbsp</label><span id="speed"></span> <br>
+      <label>Is Moving - &nbsp</label><span id="moving"></span> <br>
+    </div>
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+   
+        function bus_details(bus_number) {
+        $.ajax({
+          url: "http://localhost:5000/api/bus/" + bus_number.toString(),
+          crossDomain: true,
+          cors: true,
+          async: true,
+          dataType: 'json',
+          type: "GET",
+          success: function(result){
+            
+            if(!result.success) {
+              alert("Enter a valid bus number");
+              $("#location").text(" ");
+              $("#place").text(" ");
+              $("#speed").text(" ");
+              $("#moving").text(" ");
+              return;
+            }
+
+            let bus_location = result.latitude + ', ' + result.longitude;
+            let bus_place = result.place;
+            let bus_speed = result.speed;
+            let bus_moving = bus_speed === 0 ? 'No' : 'Yes';
+
+            $("#location").text(bus_location);
+            $("#place").text(bus_place);
+            $("#speed").text(bus_speed);
+            $("#moving").text(bus_moving);
+          }
+        });
+      };
+      
+      function myFunction () {
+        let bus_number = $('#bus_number').val();
+        
+        if(bus_number) {
+          bus_details(bus_number);
+        } else {
+
+        }
+
+        event.preventDefault();
+      };
+
+      setInterval(async function () {
+        let bus_number = $('#bus_number').val();
+        
+        if(bus_number) {
+          alert("Refreshing information");
+          await myFunction();
+        }
+      }, 5000);
+</script>
 </body>
 </html>
