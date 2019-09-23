@@ -1,6 +1,5 @@
 import click
 import sys
-import json
 
 __author__ = "Adisakshya Chauhan"
 
@@ -14,9 +13,7 @@ def lookup(bus_number):
 
         bus_number: {integer}
     """
-    f = open("../bus_data.json")
-    bus_info = json.load(f)
-    f.close()
+    bus_info = store()
 
     if bus_number not in bus_info.keys():
             

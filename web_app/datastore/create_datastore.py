@@ -1,5 +1,6 @@
 import reverse_geocoder as rg 
 import json
+from store_loader import create_store, load_api_response
 
 class reverse_geo_coder:
 
@@ -17,7 +18,6 @@ class reverse_geo_coder:
         admin2 = result[4][1]
         cc = result[5][1]
 
-        print(name, admin1, admin2, cc)
         return name, admin1 + ' ' + admin2, cc
 
 class bus_info:
@@ -32,9 +32,7 @@ class bus_info:
 
     def update_datastore(self):
 
-        f = open('./data.json')
-        response = json.load(f)
-        f.close()
+        response = load_api_response()
 
         bus_list = response['busDetails']
         for bus in bus_list:
@@ -64,9 +62,14 @@ class bus_info:
 
                 self.map[int(bus_number)] = res
 
-        f = open('bus_data.json', 'w')
-        json.dump(self.map, f)
-        f.close()
+        flag = create_store(self.map)
+        if not flag:
+
+            print('Datastore failed to initialize')
+        
+        else:
+
+            print('Datastore initialized successfully')
 
 if __name__ == "__main__": 
       

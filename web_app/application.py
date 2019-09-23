@@ -1,11 +1,8 @@
 from flask import Flask, render_template, request
-import json
+from datastore.store_loader import load_store as store
 
 app = Flask(__name__)
-# base_url = "http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist"
-f = open("bus_data.json", "r")
-bus_data = json.load(f)
-f.close()
+bus_data = store()
 
 @app.route("/api/bus/<bus_number>", methods = ["GET"])
 def get(bus_number):
