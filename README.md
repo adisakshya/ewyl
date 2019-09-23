@@ -1,6 +1,6 @@
 # CloudSEK EWYL
 
-This repository cintain my solution to the CloudSEK Earn While You Learn (EWYL) Program
+This repository contain my solution to challenge 1 of CloudSEK Earn While You Learn (EWYL) Program
 
 ## Directory Structure
 
@@ -43,6 +43,14 @@ This repository cintain my solution to the CloudSEK Earn While You Learn (EWYL) 
 Run the following command to clone this repository and get into root directory
 ```
 $ git clone https://github.com/adisakshya/ewyl.git && cd ewyl
+```
+
+## Setting up environment
+
+Create and activate a virtual environment by running
+```
+$ virtualenv venv
+$ source venv/Scripts/activate
 ```
 
 ## Execution Instructions
