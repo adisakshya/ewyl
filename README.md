@@ -7,30 +7,30 @@ This repository contain my solution to challenge 1 of CloudSEK Earn While You Le
 ```
 .
 ├── ./web_app
-│   ├── .application.py
-│   ├── ./datastore
-│   │   └── .__init__.py
-│   │   └── .create_datastore.py
-│   │   └── .store_loader.py
-│   │   └── ./store
-│   │       ├── .bus_data.json
-│   │       └── .data.json
-│   ├── ./static
-│   │   └── ./css
-│   │       └── .styles.css
-│   ├── ./templates
-│   └   └── .index.html
+│   ├── .web_app/application.py
+│   ├── .web_app/datastore
+│   │   └── .web_app/datastore/__init__.py
+│   │   └── .web_app/datastore/create_datastore.py
+│   │   └── .web_app/datastore/store_loader.py
+│   │   └── .web_app/datastore/store
+│   │       ├── .web_app/datastore/store/bus_data.json
+│   │       └── .web_app/datastore/store/data.json
+│   ├── .web_app/static
+│   │   └── .web_app/static/css
+│   │       └── .web_app/static/css/styles.css
+│   ├── .web_app/templates
+│   └   └── .web_app/templates/index.html
 ├── ./CLI
-│   ├── .setup.py
-│   ├── ./datastore
-│   │   └── .__init__.py
-│   │   └── .create_datastore.py
-│   │   └── .store_loader.py
-│   │   └── ./store
-│   │       └── .bus_data.json
-│   │       └── .data.json
-│   ├── ./bin
-│   └   └── .vts_live_cli.py
+│   ├── .CLI/setup.py
+│   ├── .CLI/datastore
+│   │   └── .CLI/datastore/__init__.py
+│   │   └── .CLI/datastore/create_datastore.py
+│   │   └── .CLI/datastore/store_loader.py
+│   │   └── .CLI/datastore/store
+│   │       └── .CLI/datastore/store/bus_data.json
+│   │       └── .CLI/datastore/store/data.json
+│   ├── .CLI/bin
+│   └   └── .CLI/bin/vts_live_cli.py
 ├── ./requirements.txt
 ├── ./runtime.txt
 ├── ./README.md
@@ -61,6 +61,13 @@ Command Line Application
     - ```/CLI/datastore/store_loader.py``` acts as an interface between datastore and web application and is responsible for making the JSON data available for various functions.
   - ```/CLI/bin``` holds all the executable scripts.
     - ```/CLI/bin/vts_live_cli.py``` script is the main application file.
+
+## External Dependencies
+```
+- Click (for command line application)
+- Flask (for web application)
+- Reverse-Geo-Coder (for reverse geo coding)
+```
 
 ## Cloning the repository
 
