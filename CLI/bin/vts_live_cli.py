@@ -1,5 +1,5 @@
 import click
-import sys
+import datastore.store_loader as store_loader
 
 __author__ = "Adisakshya Chauhan"
 
@@ -13,7 +13,7 @@ def lookup(bus_number):
 
         bus_number: {integer}
     """
-    bus_info = store()
+    bus_info = store_loader.load_store()
 
     if bus_number not in bus_info.keys():
             
