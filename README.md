@@ -8,28 +8,28 @@ This repository contain my solution to challenge 1 of CloudSEK Earn While You Le
 .
 ├── ./web_app
 │   ├── .application.py
-│   ├── .datastore/
+│   ├── ./datastore
 │   │   └── .__init__.py
 │   │   └── .create_datastore.py
 │   │   └── .store_loader.py
-│   │   └── .store/
+│   │   └── ./store
 │   │       ├── .bus_data.json
 │   │       └── .data.json
-│   ├── .static/
-│   │   └── .css/
+│   ├── ./static
+│   │   └── ./css
 │   │       └── .styles.css
-│   ├── .templates/
+│   ├── ./templates
 │   └   └── .index.html
 ├── ./CLI
 │   ├── .setup.py
-│   ├── .datastore/
+│   ├── ./datastore
 │   │   └── .__init__.py
 │   │   └── .create_datastore.py
 │   │   └── .store_loader.py
-│   │   └── .store/
+│   │   └── ./store
 │   │       └── .bus_data.json
 │   │       └── .data.json
-│   ├── .bin/
+│   ├── ./bin
 │   └   └── .vts_live_cli.py
 ├── ./requirements.txt
 ├── ./runtime.txt
@@ -37,6 +37,30 @@ This repository contain my solution to challenge 1 of CloudSEK Earn While You Le
 ├── ./LICENSE
 └── ./.gitignore
 ```
+
+Web Application
+- ```/web_app``` is the directory containing the web application.
+  - ```/web_app/application.py``` is the main server file.
+  - ```/web_app/datastore``` directory contain the utilities to manipulate the JSON response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
+    - ```/web_app/datastore/store``` has 2 JSON files.
+      - ```/web_app/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
+      - ```/web_app/datastore/store/bus_data.json``` is the manipulated form of data.json.
+    - ```/web_app/datastore/create_datastore.py``` reads raw response in data.json and creates the manipulated JSON file bus_data.json.
+    - ```/web_app/datastore/store_loader.py``` acts as an interface between datastore and web application and is responsible for making the JSON data available for various functions.
+  - ```/web_app/static/css``` holds the static css files.
+  - ```/web_app/templates``` directory contain the HTML file for landing page.
+  
+Command Line Application
+- ```/CLI``` is the directory containing the command line application.
+  - ```/CLI/setup.py``` is the main setup file that installs the application.
+  - ```/CLI/datastore``` directory contain the utilities to manipulate the JSON response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
+    - ```/CLI/datastore/store``` has 2 JSON files.
+      - ```/CLI/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
+      - ```/CLI/datastore/store/bus_data.json``` is the manipulated form of data.json.
+    - ```/CLI/datastore/create_datastore.py``` reads raw response in data.json and creates the manipulated JSON file bus_data.json.
+    - ```/CLI/datastore/store_loader.py``` acts as an interface between datastore and web application and is responsible for making the JSON data available for various functions.
+  - ```/CLI/bin``` holds all the executable scripts.
+    - ```/CLI/bin/vts_live_cli.py``` script is the main application file.
 
 ## Cloning the repository
 
