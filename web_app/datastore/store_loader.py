@@ -18,7 +18,7 @@ def create_store(mapping):
 
     try:
 
-        f = open('./datastore/store/bus_data.json', 'w')
+        f = open('./store/bus_data.json', 'w')
         json.dump(mapping, f)
         f.close()
         return True
@@ -32,7 +32,7 @@ def load_api_response():
 
     try:
         
-        f = open('./datastore/store/data.json', 'r')
+        f = open('./store/data.json', 'r')
         res = json.load(f)
         f.close()
         return res
