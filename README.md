@@ -1,6 +1,6 @@
 # CloudSEK EWYL
 
-This repository contain my solution to challenge 1 of CloudSEK Earn While You Learn (EWYL) Program
+This repository contain my solution to **Vehicle Tracking System challenge*** of **CloudSEK Earn While You Learn (EWYL) Program**
 
 ## Directory Structure
 
@@ -38,14 +38,14 @@ This repository contain my solution to challenge 1 of CloudSEK Earn While You Le
 └── ./.gitignore
 ```
 
-Web Application
+**Web Application**
 - ```/web_app``` is the directory containing the web application.
   - ```/web_app/application.py``` is the main server file.
   - ```/web_app/datastore``` directory contain the utilities to manipulate the JSON response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
     - ```/web_app/datastore/store``` has 2 JSON files.
-      - ```/web_app/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist), and can computed using create_datastore.py which calls this url.
+      - ```/web_app/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist), and can computed using create_datastore.py which request this url.
       - ```/web_app/datastore/store/bus_data.json``` is the manipulated form of data.json.
-    - ```/web_app/datastore/create_datastore.py``` reads raw response in data.json and creates the manipulated JSON file bus_data.json.
+    - ```/web_app/datastore/create_datastore.py``` can requests data from  [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist), but currently is reading already cached raw response in data.json and creates the manipulated JSON file bus_data.json.
     - ```/web_app/datastore/store_loader.py``` acts as an interface between datastore and web application and is responsible for making the JSON data available for various functions.
   - ```/web_app/static/css``` holds the static css files.
   - ```/web_app/templates``` directory contain the HTML file for landing page.
@@ -54,15 +54,15 @@ Web Application
   - This route fetch data from bus_data.json.
   - JSON data in bus_data.json can be set to update every 60 seconds by uncommenting the ```threading call``` in ```create_datastore.py```
   
-Command Line Application
+**Command Line Application**
 - ```/CLI``` is the directory containing the command line application.
   - ```/CLI/setup.py``` is the main setup file that installs the application.
   - ```/CLI/datastore``` directory contain the utilities to manipulate the JSON response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
     - ```/CLI/datastore/store``` has 2 JSON files.
-      - ```/CLI/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist), and can computed using create_datastore.py which calls this url.
+      - ```/CLI/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist), and can computed using create_datastore.py which request this url.
       - ```/CLI/datastore/store/bus_data.json``` is the manipulated form of data.json.
       - JSON data in bus_data.json is can be set to update every 60 seconds by uncommenting the ```threading call``` in ```create_datastore.py```
-    - ```/CLI/datastore/create_datastore.py``` reads raw response in data.json and creates the manipulated JSON file bus_data.json.
+    - ```/web_app/datastore/create_datastore.py``` can requests data from  [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist), but currently is reading already cached raw response in data.json and creates the manipulated JSON file bus_data.json.
     - ```/CLI/datastore/store_loader.py``` acts as an interface between datastore and web application and is responsible for making the JSON data available for various functions.
   - ```/CLI/bin``` holds all the executable scripts.
     - ```/CLI/bin/vts_live_cli.py``` script is the main application file.
@@ -72,6 +72,7 @@ Command Line Application
 - Click (for command line application)
 - Flask (for web application)
 - Reverse-Geo-Coder (for reverse geo coding)
+- Requests (for sending HTTP requests)
 ```
 
 ## Cloning the repository
