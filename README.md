@@ -43,20 +43,25 @@ Web Application
   - ```/web_app/application.py``` is the main server file.
   - ```/web_app/datastore``` directory contain the utilities to manipulate the JSON response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
     - ```/web_app/datastore/store``` has 2 JSON files.
-      - ```/web_app/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
+      - ```/web_app/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist), and can computed using create_datastore.py which calls this url.
       - ```/web_app/datastore/store/bus_data.json``` is the manipulated form of data.json.
     - ```/web_app/datastore/create_datastore.py``` reads raw response in data.json and creates the manipulated JSON file bus_data.json.
     - ```/web_app/datastore/store_loader.py``` acts as an interface between datastore and web application and is responsible for making the JSON data available for various functions.
   - ```/web_app/static/css``` holds the static css files.
   - ```/web_app/templates``` directory contain the HTML file for landing page.
+
+- The web application at every 5 seconds call ```/api/bus/<bus_number>``` to get updated data.
+  - This route fetch data from bus_data.json.
+  - JSON data in bus_data.json can be set to update every 60 seconds by uncommenting the ```threading call``` in ```create_datastore.py```
   
 Command Line Application
 - ```/CLI``` is the directory containing the command line application.
   - ```/CLI/setup.py``` is the main setup file that installs the application.
   - ```/CLI/datastore``` directory contain the utilities to manipulate the JSON response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
     - ```/CLI/datastore/store``` has 2 JSON files.
-      - ```/CLI/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist).
+      - ```/CLI/datastore/store/data.json``` is the raw response from [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist), and can computed using create_datastore.py which calls this url.
       - ```/CLI/datastore/store/bus_data.json``` is the manipulated form of data.json.
+      - JSON data in bus_data.json is can be set to update every 60 seconds by uncommenting the ```threading call``` in ```create_datastore.py```
     - ```/CLI/datastore/create_datastore.py``` reads raw response in data.json and creates the manipulated JSON file bus_data.json.
     - ```/CLI/datastore/store_loader.py``` acts as an interface between datastore and web application and is responsible for making the JSON data available for various functions.
   - ```/CLI/bin``` holds all the executable scripts.
@@ -84,6 +89,11 @@ $ virtualenv venv
 $ source venv/Scripts/activate
 ```
 
+Install requirements by running following command
+```
+$ pip install -r requirements.txt
+```
+
 ## Execution Instructions
 
 ### Web Application
@@ -95,14 +105,7 @@ Get into web application directory by running following command on terminal/bash
 $ cd web_app
 ```
 
-#### Step 2:
-
-Install requirements by running following command
-```
-$ pip install -r requirements.txt
-```
-
-#### Step 3: (Optional - as datastore is already created, cached from  [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist))
+#### Step 2: (Optional - as datastore is already created, cached from  [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist))
 
 Create datastore by running following commands
 ```
@@ -110,7 +113,7 @@ $ cd datastore
 $ py create_datastore.py
 ```
 
-#### Step 4:
+#### Step 3:
 
 Run the web application by
 ```
@@ -127,14 +130,7 @@ Get into CLI directory by running following command on terminal/bash
 $ cd CLI
 ```
 
-#### Step 2:
-
-Install requirements by running following command
-```
-$ pip install -r requirements.txt
-```
-
-#### Step 3: (Optional - as datastore is already created, cached from  [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist))
+#### Step 2: (Optional - as datastore is already created, cached from  [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist))
 
 Create datastore by running following commands
 ```
@@ -142,7 +138,7 @@ $ cd datastore
 $ py create_datastore.py
 ```
 
-#### Step 4:
+#### Step 3:
 
 Install the command line application by
 ```
@@ -150,7 +146,7 @@ $ py setup.py install
 ```
 Now the command line application is installed
 
-#### Step 5:
+#### Step 4:
 
 Use command line application by commands following the below pattern
 ```
