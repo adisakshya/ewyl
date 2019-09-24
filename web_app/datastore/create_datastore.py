@@ -107,6 +107,6 @@ def main():
 
 if __name__ == "__main__": 
     
-    # Uncomment below line to update datastore every 10 seconds
+    # Uncomment below line to update datastore every 60 seconds
     # threading.Timer(60.0, main).start()
     main()
