@@ -84,7 +84,12 @@ $ git clone https://github.com/adisakshya/ewyl.git && cd ewyl
 
 ## Setting up environment
 
-Create and activate a virtual environment by running
+Execution Environment
+```
+Python-3.7.3
+```
+
+Create and activate a virtual environment by running (make sure python-3.7.3 is installed)
 ```
 $ virtualenv venv
 $ source venv/Scripts/activate
@@ -108,6 +113,7 @@ $ cd web_app
 
 #### Step 2: (Optional - as datastore is already created, cached from  [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist))
 
+Datastore can also updated dynamically using ```create_datastore.py``` that can re-cache the bus data from above URL at regular intervals.
 Create datastore by running following commands
 ```
 $ cd datastore
@@ -133,6 +139,7 @@ $ cd CLI
 
 #### Step 2: (Optional - as datastore is already created, cached from  [vtslive.in/nst](http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist))
 
+Datastore can also updated dynamically using ```create_datastore.py``` that can re-cache the bus data from above URL at regular intervals.
 Create datastore by running following commands
 ```
 $ cd datastore
