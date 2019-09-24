@@ -28,6 +28,20 @@ def create_store(mapping):
         print("Error:", error)
         return False
 
+def store_api_response(json_file):
+
+    try:
+
+        f = open('./store/data.json', 'w')
+        json.dump(json_file, f)
+        f.close()
+        return True
+
+    except Exception as error:
+
+        print("Error:", error)
+        return False
+
 def load_api_response():
 
     try:

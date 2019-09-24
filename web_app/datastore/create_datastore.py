@@ -1,6 +1,7 @@
 import reverse_geocoder as rg 
 import json
-from store_loader import create_store, load_api_response
+import requests
+from store_loader import create_store, load_api_response, store_api_response
 
 class reverse_geo_coder:
 
@@ -29,6 +30,25 @@ class bus_info:
     def __str__(self):
 
         return "bus_info"
+    
+    def get_api_response(self):
+
+        print("Getting data from api")
+
+        base_url = "http://vtslive.in/nist/getMobilityData.php?L=smartgreencampus@nist&P=smart@nist"
+        
+        try:
+            
+            r = requests.get(url = base_url) 
+            data = r.json() 
+
+            store_api_response(data)
+            return True
+
+        except Exception as error:
+
+            print("Error:", error)
+            return False
 
     def update_datastore(self):
 
@@ -74,4 +94,8 @@ class bus_info:
 if __name__ == "__main__": 
       
     busObj = bus_info()
+
+    # Uncomment below line to get data from NIST
+    # busObj.get_api_response()
+
     busObj.update_datastore()
