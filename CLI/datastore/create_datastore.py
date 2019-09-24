@@ -1,6 +1,7 @@
 import reverse_geocoder as rg 
 import json
 import requests
+import threading
 from store_loader import create_store, load_api_response, store_api_response
 
 class reverse_geo_coder:
@@ -91,11 +92,21 @@ class bus_info:
 
             print('Datastore initialized successfully')
 
-if __name__ == "__main__": 
-      
+def main():
+
     busObj = bus_info()
 
     # Uncomment below line to get data from NIST
+    # print("Getting data from NIST")
     # busObj.get_api_response()
 
+    print("updating datastore")
     busObj.update_datastore()
+    # print("datastore updated")
+
+
+if __name__ == "__main__": 
+    
+    # Uncomment below line to update datastore every 60 seconds
+    # threading.Timer(60.0, main).start()
+    main()
