@@ -161,3 +161,21 @@ Use command line application by commands following the below pattern
 vts_live_cli.py <BUS_NUMBER>
 ```
 This will return the bus details.
+
+### Screenshots
+
+#### Web Application
+
+![Screenshot 1](https://github.com/adisakshya/ewyl/blob/master/screenshots/web_app_0.JPG)
+
+![Screenshot 2](https://github.com/adisakshya/ewyl/blob/master/screenshots/web_app_1.JPG)
+
+![Screenshot 3](https://github.com/adisakshya/ewyl/blob/master/screenshots/web_app_2.JPG)
+
+![Screenshot 4](https://github.com/adisakshya/ewyl/blob/master/screenshots/web_app_3.JPG)
+
+### Command Line Application
+
+Setup Logs: [link to txt file](https://github.com/adisakshya/ewyl/blob/master/screenshots/CLI%20setup%20logs.txt)
+
+![Screenshot 1](https://github.com/adisakshya/ewyl/blob/master/screenshots/cli_0.JPG)
