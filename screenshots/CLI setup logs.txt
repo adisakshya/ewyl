@@ -1,0 +1,53 @@
+$ py setup.py install
+running install
+running bdist_egg
+running egg_info
+creating VTSLive.egg-info        
+writing VTSLive.egg-info\PKG-INFO
+writing dependency_links to VTSLive.egg-info\dependency_links.txt
+writing top-level names to VTSLive.egg-info\top_level.txt        
+writing manifest file 'VTSLive.egg-info\SOURCES.txt'
+reading manifest file 'VTSLive.egg-info\SOURCES.txt'
+writing manifest file 'VTSLive.egg-info\SOURCES.txt'
+installing library code to build\bdist.win-amd64\egg        
+running install_lib
+running build_py
+creating build
+creating build\lib
+creating build\lib\datastore
+copying datastore\create_datastore.py -> build\lib\datastore
+copying datastore\store_loader.py -> build\lib\datastore    
+copying datastore\__init__.py -> build\lib\datastore
+creating build\bdist.win-amd64
+creating build\bdist.win-amd64\egg
+creating build\bdist.win-amd64\egg\datastore        
+copying build\lib\datastore\create_datastore.py -> build\bdist.win-amd64\egg\datastore
+copying build\lib\datastore\store_loader.py -> build\bdist.win-amd64\egg\datastore    
+copying build\lib\datastore\__init__.py -> build\bdist.win-amd64\egg\datastore        
+byte-compiling build\bdist.win-amd64\egg\datastore\create_datastore.py to create_datastore.cpython-37.pyc
+byte-compiling build\bdist.win-amd64\egg\datastore\store_loader.py to store_loader.cpython-37.pyc
+byte-compiling build\bdist.win-amd64\egg\datastore\__init__.py to __init__.cpython-37.pyc
+creating build\bdist.win-amd64\egg\EGG-INFO
+installing scripts to build\bdist.win-amd64\egg\EGG-INFO\scripts
+running install_scripts
+running build_scripts
+creating build\scripts-3.7
+copying bin\vts_live_cli.py -> build\scripts-3.7
+creating build\bdist.win-amd64\egg\EGG-INFO\scripts
+copying build\scripts-3.7\vts_live_cli.py -> build\bdist.win-amd64\egg\EGG-INFO\scripts
+copying VTSLive.egg-info\PKG-INFO -> build\bdist.win-amd64\egg\EGG-INFO
+copying VTSLive.egg-info\SOURCES.txt -> build\bdist.win-amd64\egg\EGG-INFO
+copying VTSLive.egg-info\dependency_links.txt -> build\bdist.win-amd64\egg\EGG-INFO
+copying VTSLive.egg-info\top_level.txt -> build\bdist.win-amd64\egg\EGG-INFO
+zip_safe flag not set; analyzing archive contents...
+creating dist
+creating 'dist\VTSLive-1.0.0-py3.7.egg' and adding 'build\bdist.win-amd64\egg' to it    
+removing 'build\bdist.win-amd64\egg' (and everything under it)
+Processing VTSLive-1.0.0-py3.7.egg
+Copying VTSLive-1.0.0-py3.7.egg to c:\users\adisa\adisakshya\ewyl\venv\lib\site-packages
+Adding VTSLive 1.0.0 to easy-install.pth file
+Installing vts_live_cli.py script to C:\Users\adisa\adisakshya\ewyl\venv\Scripts
+
+Installed c:\users\adisa\adisakshya\ewyl\venv\lib\site-packages\vtslive-1.0.0-py3.7.egg 
+Processing dependencies for VTSLive==1.0.0
+Finished processing dependencies for VTSLive==1.0.0
